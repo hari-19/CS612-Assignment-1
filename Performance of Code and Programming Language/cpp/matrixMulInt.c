@@ -1,8 +1,6 @@
-#include<iostream>
-#include <cstdlib>
+#include<stdio.h>
 #include<time.h>
-#define N 256
-using namespace std;
+#define N 4096
 
 double diff_timespec(const struct timespec *time1, const struct timespec *time0) {
   return (time1->tv_sec - time0->tv_sec)
@@ -32,10 +30,9 @@ int main() {
     }
     timespec_get(&time2, TIME_UTC);
 
-    cout << "Total Time:" << diff_timespec(&time2, &time0) << "\n";
-    cout << "Meat Time:" << diff_timespec(&time2, &time1) << "\n";
+    printf("Total Time: %f\n",diff_timespec(&time2, &time0));;
+    printf("Meat Time: %f\n",diff_timespec(&time2, &time0));;
     
-    cout << "\n";
     return 0;
 }
 

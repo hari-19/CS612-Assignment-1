@@ -1,4 +1,4 @@
-class MatrixMulInt {
+class MatrixMulDouble {
     public static void main(String[] args) {
         final long time0 = System.currentTimeMillis();
         
