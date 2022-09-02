@@ -1,7 +1,7 @@
 #include<iostream>
 #include <cstdlib>
 #include<time.h>
-#define N 256
+#define N 4096
 using namespace std;
 
 double diff_timespec(const struct timespec *time1, const struct timespec *time0) {
@@ -15,17 +15,19 @@ int main() {
 
     int a[N][N], c[N][N];
 
-    for(int i=0; i<N; i++) {
-        for(int j=0; j<N; j++) {
+    int i, j, k;
+
+    for(i=0; i<N; i++) {
+        for(j=0; j<N; j++) {
             a[i][j] = 1;
             c[i][j] = 0;
         }
     }
 
     timespec_get(&time1, TIME_UTC);
-    for(int i=0; i<N; i++) {
-        for(int j=0; j<N; j++) {
-            for(int k=0; k<N; k++){
+    for(i=0; i<N; i++) {
+        for(j=0; j<N; j++) {
+            for(k=0; k<N; k++){
                 c[i][j] += a[i][k] * a[k][j];
             }
         }
